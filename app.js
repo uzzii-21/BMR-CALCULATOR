@@ -1,4 +1,4 @@
-function calculate() {
+const calculate = () => {
     var age = document.forms["myForm"]["age"].value;
     var gender = document.forms["myForm"]["gender"].value;
     var foot = document.forms["myForm"]["height1"].value;
@@ -14,6 +14,7 @@ function calculate() {
     var weight = weight1 * 0.453592;
 
     console.log(height);
+    let activity;
     var bmr = 0;
     if (age == '' || gender == '' || height == '' || weight == '') {
       alert("All fields are required");
@@ -26,7 +27,26 @@ function calculate() {
       bmr = 655.1 + (9.563 * weight) + (1.85 * height) - (4.676 * age);
     }
 
-    document.getElementById("result").innerHTML = 'Your BMR: ' + bmr.toFixed(2) + 'kCal/Day';
+    if(bmr <= 1926){
+        activity="Activity Level: Sedentary: little or no exercise";
+        }
+    else if(bmr > 1926 && bmr<= 2207){
+        activity="Activity Level: Exercise 1-3 times/week";
+        }
+    else if(bmr > 2207 && bmr <= 2351){
+        activity="Activity Level: Exercise 4-5 times/week";
+        }
+    else if(bmr > 2351 && bmr <= 2488){
+        activity="Activity Level: Daily exercise or intense exercise 3-4 times/week";
+        }
+    else if(bmr > 2488 && bmr <= 2796){
+        activity="Activity Level: Intense exercise 6-7 times/week";
+        }
+    else if( bmr > 2796){
+        activity="Activity Level: Very intense exercise daily, or physical job";
+    }
+
+    document.getElementById("result").innerHTML = 'Your BMR: ' + bmr.toFixed(2) + 'kCal/Day' + activity;
     document.getElementById("result").style.display = "block";
 
     return false;

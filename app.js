@@ -1,21 +1,21 @@
 const calculate = () => {
-    var age = document.forms["myForm"]["age"].value;
-    var gender = document.forms["myForm"]["gender"].value;
-    var foot = document.forms["myForm"]["height1"].value;
-    var inch = document.forms["myForm"]["height2"].value;
-    var weight1 = document.forms["myForm"]["weight"].value;
+    let age = document.forms["myForm"]["age"].value;
+    let gender = document.forms["myForm"]["gender"].value;
+    let foot = document.forms["myForm"]["height1"].value;
+    let inch = document.forms["myForm"]["height2"].value;
+    let weight1 = document.forms["myForm"]["weight"].value;
 
     // convert height from feet inches to cm
-    var footToCm = foot * 30.48; 
-    var inchToCm = inch * 2.54;
-    var height = footToCm + inchToCm;
+    let footToCm = foot * 30.48; 
+    let inchToCm = inch * 2.54;
+    let height = footToCm + inchToCm;
 
     // convert weight from pound to kg
-    var weight = weight1 * 0.453592;
+    let weight = weight1 * 0.453592;
 
     console.log(height);
     let activity;
-    var bmr = 0;
+    let bmr = 0;
     if (age == '' || gender == '' || height == '' || weight == '') {
       alert("All fields are required");
       return false;
